@@ -1,0 +1,6 @@
+#! /usr/bin/bash
+
+DATASET1=""
+DATASET2=""
+
+python -m pytorch_fid $DATASET1 $DATASET2

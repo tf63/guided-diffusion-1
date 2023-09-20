@@ -1,0 +1,47 @@
+#! /usr/bin/bash
+
+# ------------------------------------------------------------------
+# airplane to car
+IMG_DIR_BASE="results/image/tcfg64_label404_run0"
+# ------------------------------------------------------------------
+# IMG_DIR_TRANS="results/saved_run/trans_eval/tcfg64_dir_404to817_t500_run0"
+# 0.613683283397497
+# IMG_DIR_TRANS="results/saved_run/trans_eval/tcfg64_dir_404to817_t400_run0"
+#  0.684826105911824
+# IMG_DIR_TRANS="results/saved_run/trans_eval/tcfg64_dir_404to817_t300_run0"
+# 0.7559496412359255
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_404to817_t500_run0"
+# 0.6701540397537671
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_404to817_t400_run0"
+# 0.7326755558585318
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_404to817_t300_run0"
+# 0.7948172183109651
+# IMG_DIR_TRANS="results/saved_run/trans_eval/trans64_dir_404to817_t500_run0"
+# 0.6867252767313315
+# IMG_DIR_TRANS="results/saved_run/trans_eval/trans64_dir_404to817_t400_run0"
+# 0.7462131445846893
+IMG_DIR_TRANS="results/saved_run/trans_eval/trans64_dir_404to817_t300_run0"
+#  0.8037480583856123
+
+# ------------------------------------------------------------------
+# car to airplane
+# IMG_DIR_BASE="results/image/tcfg64_label817_run0"
+# ------------------------------------------------------------------
+# IMG_DIR_TRANS="results/saved_run/trans_eval/tcfg64_dir_817to404_t500_run0"
+#  0.5132191393669808
+# IMG_DIR_TRANS="results/saved_run/trans_eval/tcfg64_dir_817to404_t400_run0"
+# 0.5952286257173006
+# IMG_DIR_TRANS="results/saved_run/trans_eval/tcfg64_dir_817to404_t300_run0"
+# 0.6842127501253751
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_817to404_t500_run0"
+#  0.5784931267317067
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_817to404_t400_run0"
+# 0.6556416005939417
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_817to404_t300_run0"
+# 0.73552816870186
+# IMG_DIR_TRANS="results/saved_run/trans_eval/trans64_dir_817to404_t500_run0"
+#  0.5943267808631887
+
+# ------------------------------------------------------------------
+
+python tests/ssim.py --img_dir_base $IMG_DIR_BASE --img_dir_trans $IMG_DIR_TRANS

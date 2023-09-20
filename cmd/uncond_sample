@@ -1,0 +1,23 @@
+#!/usr/bin/bash
+
+# EXP ------------------------------------------------------------
+# ITR=060000
+I_RUN=3
+LABEL=817
+# EXP_NAME="tiny_sample_uncond${ITR}_wiener_label${LABEL}"
+# MODEL_PATH="models/tiny_imagenet_wiener_uncond/model${ITR}.pt"
+# EXP_NAME="tiny_sample_cond${ITR}_gaussian_label${LABEL}"
+# MODEL_PATH="models/tiny_imagenet_cond_gaussian_k5_s5/model${ITR}.pt"
+EXP_NAME="tcfg64_label${LABEL}"
+MODEL_PATH="models/64x64_diffusion.pt"
+# ----------------------------------------------------------------
+
+SAMPLE_FLAGS="--batch_size 16 --num_samples 6400 --timestep_respacing 1000 --i_run $I_RUN --label ${LABEL}"
+
+# 64x64
+MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --diffusion_steps 1000 --dropout 0.1 --image_size 64 --learn_sigma True --noise_schedule cosine --num_channels 192 --num_head_channels 64 --num_res_blocks 3 --resblock_updown True --use_new_attention_order True --use_fp16 True --use_scale_shift_norm True"
+python scripts/image_sample.py $MODEL_FLAGS --exp_name $EXP_NAME --model_path $MODEL_PATH $SAMPLE_FLAGS
+
+# 256x256
+# MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond False --diffusion_steps 1000 --image_size 256 --learn_sigma True --noise_schedule linear --num_channels 256 --num_head_channels 64 --num_res_blocks 2 --resblock_updown True --use_fp16 True --use_scale_shift_norm True"
+# python scripts/classifier_sample.py $MODEL_FLAGS --exp_name $EXP_NAME --classifier_scale 0 --classifier_path models/256x256_classifier.pt --model_path $MODEL_PATH $SAMPLE_FLAGS

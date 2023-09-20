@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+# EXP ------------------------------------------------------------
+I_RUN=1
+LABEL=404
+
+SAMPLE_FLAGS="--batch_size 16 --num_samples 8000 --timestep_respacing 1000 --make_gif False --i_run $I_RUN --label $LABEL"
+# ----------------------------------------------------------------
+
+# 64x64
+EXP_NAME="tcfg64_label${LABEL}"
+MODEL_PATH="models/64x64_diffusion.pt"
+MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --diffusion_steps 1000 --dropout 0.1 --image_size 64 --learn_sigma True --noise_schedule cosine --num_channels 192 --num_head_channels 64 --num_res_blocks 3 --resblock_updown True --use_new_attention_order True --use_fp16 True --use_scale_shift_norm True"
+python scripts/image_sample.py $MODEL_FLAGS --exp_name $EXP_NAME --model_path $MODEL_PATH $SAMPLE_FLAGS
+
+# 256x256
+# EXP_NAME="tcfg256_label${LABEL}"
+# MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --diffusion_steps 1000 --image_size 256 --learn_sigma True --noise_schedule linear --num_channels 256 --num_head_channels 64 --num_res_blocks 2 --resblock_updown True --use_fp16 True --use_scale_shift_norm True"
+# python scripts/image_sample.py $MODEL_FLAGS --exp_name $EXP_NAME --model_path "models/256x256_diffusion.pt" $SAMPLE_FLAGS

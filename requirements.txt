@@ -1,0 +1,15 @@
+pillow
+matplotlib
+jupyter
+ipykernel
+numpy
+pandas
+scipy
+tqdm
+flake8
+black
+opencv-python
+mpi4py
+scikit-image
+natsort
+pytorch-fid

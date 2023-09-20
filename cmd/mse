@@ -1,0 +1,51 @@
+#! /usr/bin/bash
+
+# ------------------------------------------------------------------
+# airplane to car
+# IMG_DIR_BASE="results/image/tcfg64_label404_run0"
+# ------------------------------------------------------------------
+# IMG_DIR_TRANS="results/trans/tcfg64_dir_404to817_t500_run0"
+# Average MSE: 0.012487011473040184
+# IMG_DIR_TRANS="results/trans/tcfg64_dir_404to817_t400_run0"
+# Average MSE: 0.008368396563097728
+# IMG_DIR_TRANS="results/trans/tcfg64_dir_404to817_t300_run0"
+# Average MSE: 0.005271283888675195
+# IMG_DIR_TRANS="results/trans/cg64_dir_404to817_t500_run0"
+# Average MSE: 0.008924553291393144
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_404to817_t400_run0"
+# Average MSE: 0.006169941094734289
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_404to817_t300_run0"
+# Average MSE: 0.004001415473124628
+# IMG_DIR_TRANS="results/trans/trans64_dir_404to817_t500_run0"
+# Average MSE: 0.008163855007884802
+# IMG_DIR_TRANS="results/saved_run/trans_eval/trans64_dir_404to817_t400_run0"
+# Average MSE: 0.0057194982826755825
+# IMG_DIR_TRANS="results/saved_run/trans_eval/trans64_dir_404to817_t300_run0"
+# Average MSE: 0.003783374044384497
+
+# ------------------------------------------------------------------
+# car to airplane
+IMG_DIR_BASE="results/image/tcfg64_label817_run0"
+# ------------------------------------------------------------------
+# IMG_DIR_TRANS="results/trans/tcfg64_dir_817to404_t500_run0"
+# Average MSE: 0.018755897284730358
+# IMG_DIR_TRANS="results/saved_run/trans_eval/tcfg64_dir_817to404_t400_run0"
+# Average MSE: 0.013051782914117212
+# IMG_DIR_TRANS="results/trans/tcfg64_dir_817to404_t300_run0"
+# Average MSE: 0.008396134807905279
+# IMG_DIR_TRANS="results/trans/cg64_dir_817to404_t500_run0"
+# Average MSE: 0.014122410419574105
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_817to404_t400_run0"
+# Average MSE: 0.009865970730619058
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_817to404_t300_run0"
+# Average MSE: 0.006458683577542009
+# IMG_DIR_TRANS="results/trans/trans64_dir_817to404_t500_run0"
+# Average MSE: 0.013469848981512768
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_817to404_t400_run0"
+# Average MSE: 0.009494255623461262
+# IMG_DIR_TRANS="results/saved_run/trans_eval/cg64_dir_817to404_t300_run0"
+# Average MSE: 0.0063101836101911125
+
+# ------------------------------------------------------------------
+
+python tests/mse_dir.py --img_dir_base $IMG_DIR_BASE --img_dir_trans $IMG_DIR_TRANS

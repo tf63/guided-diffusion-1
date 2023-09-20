@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+# EXP ------------------------------------------------------------
+EXP_NAME="tiny_imagenet_cond"
+CHECKPOINT="/home/tfukuda/project/guided-diffusion/models/tiny_imagenet_cond/model300000.pt"
+DATA_DIR="/home/tfukuda/project/data/tiny-imagenet-200/train"
+# ----------------------------------------------------------------
+IMAGE_SIZE=64
+NUM_GPUS=1
+MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --diffusion_steps 1000 --dropout 0.1 --image_size $IMAGE_SIZE --learn_sigma True --noise_schedule linear --num_channels 192 --num_head_channels 64 --num_res_blocks 3 --resblock_updown True --use_new_attention_order True --use_fp16 True --use_scale_shift_norm True"
+TRAIN_FLAGS="--lr 1e-4 --batch_size 24"
+# TRAIN_FLAGS="--iterations 300000 --anneal_lr True --batch_size 16 --lr 3e-4 --save_interval 10000 --weight_decay 0.05"
+# mpiexec -n $NUM_GPUS python scripts/image_train.py \
+#         --data_dir $DATA_DIR \
+#         --exp_name $EXP_NAME \
+#         $MODEL_FLAGS $TRAIN_FLAGS 
+
+mpiexec -n $NUM_GPUS python scripts/image_train.py \
+        --data_dir $DATA_DIR \
+        --exp_name $EXP_NAME \
+        --resume_checkpoint $CHECKPOINT \
+        $MODEL_FLAGS $TRAIN_FLAGS 
+
+# sampling
+# mpiexec -n N python scripts/classifier_sample.py \
+#     --model_path /path/to/model.pt \
+#     --classifier_path path/to/classifier.pt \
+#     $MODEL_FLAGS $CLASSIFIER_FLAGS $SAMPLE_FLAGS

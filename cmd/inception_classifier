@@ -1,0 +1,105 @@
+#! /usr/bin/bash
+
+# airplane to car (t500)
+# DATASET="results/trans/trans64_dir_404to817_t500_run0"
+# top-1 accuracy: 0.029166666666666667
+# top-3 accuracy: 0.07916666666666666
+# top-5 accuracy: 0.11833333333333333
+# top-10 accuracy: 0.2009375
+# DATASET="results/trans/cg64_dir_404to817_t500_run0"
+# top-1 accuracy: 0.08354166666666667
+# top-3 accuracy: 0.18489583333333334
+# top-5 accuracy: 0.2598958333333333
+# top-10 accuracy: 0.37375
+# DATASET="results/trans/tcfg64_dir_404to817_t500_run0"
+# top-1 accuracy: 0.2833333333333333
+# top-3 accuracy: 0.49166666666666664
+# top-5 accuracy: 0.5683333333333334
+# top-10 accuracy: 0.6679166666666667
+
+# airplane to car (t400)
+# DATASET="results/saved_run/trans_eval/trans64_dir_404to817_t400_run0"
+# top-1 accuracy: 0.009166666666666667
+# top-3 accuracy: 0.03302083333333333
+# top-5 accuracy: 0.058333333333333334
+# top-10 accuracy: 0.12614583333333335
+# DATASET="results/saved_run/trans_eval/cg64_dir_404to817_t400_run0"
+# top-1 accuracy: 0.03625
+# top-3 accuracy: 0.09364583333333333
+# top-5 accuracy: 0.14104166666666668
+# top-10 accuracy: 0.23302083333333334
+# DATASET="results/trans/tcfg64_dir_404to817_t400_run0"
+# top-1 accuracy: 0.16260416666666666
+# top-3 accuracy: 0.315
+# top-5 accuracy: 0.39520833333333333
+# top-10 accuracy: 0.5098958333333333
+
+# airplane to car (t300)
+# DATASET="results/saved_run/trans_eval/trans64_dir_404to817_t300_run0"
+# top-1 accuracy: 0.0032291666666666666
+# top-3 accuracy: 0.013229166666666667
+# top-5 accuracy: 0.028125
+# top-10 accuracy: 0.07197916666666666
+DATASET="results/saved_run/trans_eval/cg64_dir_404to817_t300_run0"
+# top-1 accuracy: 0.012291666666666666
+# top-3 accuracy: 0.0375
+# top-5 accuracy: 0.06552083333333333
+# top-10 accuracy: 0.12854166666666667
+# DATASET="results/trans/tcfg64_dir_404to817_t300_run0"
+# top-1 accuracy: 0.0628125
+# top-3 accuracy: 0.15041666666666667
+# top-5 accuracy: 0.21458333333333332
+# top-10 accuracy: 0.31072916666666667
+
+# car to airplane (t500)
+# DATASET="results/trans/trans64_dir_817to404_t500_run0"
+# top-1 accuracy: 0.179375
+# top-3 accuracy: 0.2863541666666667
+# top-5 accuracy: 0.3475
+# top-10 accuracy: 0.45427083333333335
+# DATASET="results/trans/cg64_dir_817to404_t500_run0"
+# top-1 accuracy: 0.3453125
+# top-3 accuracy: 0.48833333333333334
+# top-5 accuracy: 0.5583333333333333
+# top-10 accuracy: 0.6701041666666666
+# DATASET="results/trans/tcfg64_dir_817to404_t500_run0"
+# top-1 accuracy: 0.7742708333333334
+# top-3 accuracy: 0.8857291666666667
+# top-5 accuracy: 0.9216666666666666
+# top-10 accuracy: 0.965625
+
+# car to airplane (t400)
+# DATASET="results/saved_run/trans_eval/trans64_dir_817to404_t400_run0"
+# top-1 accuracy: 0.07927083333333333
+# top-3 accuracy: 0.14947916666666666
+# top-5 accuracy: 0.19802083333333334
+# top-10 accuracy: 0.296875
+# DATASET="results/saved_run/trans_eval/cg64_dir_817to404_t400_run0"
+# top-1 accuracy: 0.18697916666666667
+# top-3 accuracy: 0.2869791666666667
+# top-5 accuracy: 0.3489583333333333
+# top-10 accuracy: 0.4546875
+# DATASET="results/saved_run/trans_eval/tcfg64_dir_817to404_t400_run0"
+# top-1 accuracy: 0.5766666666666667
+# top-3 accuracy: 0.7264583333333333
+# top-5 accuracy: 0.7834375
+# top-10 accuracy: 0.8584375
+
+# car to airplane (t300)
+# DATASET="results/saved_run/trans_eval/trans64_dir_817to404_t300_run0"
+# top-1 accuracy: 0.036458333333333336
+# top-3 accuracy: 0.07302083333333333
+# top-5 accuracy: 0.10364583333333334
+# top-10 accuracy: 0.17864583333333334
+# DATASET="results/saved_run/trans_eval/cg64_dir_817to404_t300_run0"
+# top-1 accuracy: 0.07489583333333333
+# top-3 accuracy: 0.13354166666666667
+# top-5 accuracy: 0.173125
+# top-10 accuracy: 0.26416666666666666
+# DATASET="results/trans/tcfg64_dir_817to404_t300_run0"
+# top-1 accuracy: 0.3147916666666667
+# top-3 accuracy: 0.44385416666666666
+# top-5 accuracy: 0.5091666666666667
+# top-10 accuracy: 0.6314583333333333
+
+python tests/inception_classifier.py --img_dir $DATASET --label 817

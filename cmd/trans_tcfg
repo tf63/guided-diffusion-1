@@ -1,0 +1,29 @@
+#!/usr/bin/bash
+
+I_RUN=0
+CFG_SCALE=30.0
+T_MAX=500
+
+# IMG_INDEX=191
+# LABEL_FROM=817
+# LABEL_TO=404
+# IMG_PATH="results/image/tcfg64_label817_run0/tcfg64_label817_${IMG_INDEX}.png"
+# IMG_PATH="results/image/tcfg256_label817_run0/tcfg256_label817_${IMG_INDEX}.png"
+
+IMG_INDEX=0
+LABEL_FROM=404
+LABEL_TO=817
+IMG_PATH="results/image/tcfg64_label404_run0/tcfg64_label404_${IMG_INDEX}.png"
+# IMG_PATH="results/image/tcfg256_label404_run0/tcfg256_label404_${IMG_INDEX}.png"
+
+SAMPLE_FLAGS="--batch_size 1 --num_samples 1 --t_max $T_MAX --save_steps 10 --make_gif True --i_run $I_RUN --img_path $IMG_PATH --label_to $LABEL_TO --label_from $LABEL_FROM --cfg_scale $CFG_SCALE"
+
+# 64x64
+EXP_NAME="tcfg64_i${IMG_INDEX}_${LABEL_FROM}to${LABEL_TO}_t${T_MAX}_cfg30"
+MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --diffusion_steps 1000 --dropout 0.1 --image_size 64 --learn_sigma True --noise_schedule cosine --num_channels 192 --num_head_channels 64 --num_res_blocks 3 --resblock_updown True --use_new_attention_order True --use_fp16 True --use_scale_shift_norm True"
+python scripts/trans_tcfg.py $MODEL_FLAGS --exp_name $EXP_NAME --model_path models/64x64_diffusion.pt $SAMPLE_FLAGS 
+
+# 256x256
+# EXP_NAME="tcfg256_i${IMG_INDEX}_${LABEL_FROM}to${LABEL_TO}_t${T_MAX}"
+# MODEL_FLAGS="--attention_resolutions 32,16,8 --class_cond True --diffusion_steps 1000 --image_size 256 --learn_sigma True --noise_schedule linear --num_channels 256 --num_head_channels 64 --num_res_blocks 2 --resblock_updown True --use_fp16 True --use_scale_shift_norm True"
+# python scripts/trans_tcfg.py $MODEL_FLAGS --exp_name $EXP_NAME --model_path models/256x256_diffusion.pt $SAMPLE_FLAGS 

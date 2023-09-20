@@ -1,0 +1,12 @@
+#! /usr/bin/bash
+
+# DATASET="results/trans/trans64_dir_404to817_t500_run0"
+# Inception Score: 3.74 +/- 1.00
+
+DATASET="results/trans/cg64_dir_404to817_t500_run0"
+# Inception Score: 3.79 +/- 1.03
+
+# DATASET="results/trans/tcfg64_dir_404to817_t500_run0"
+# Inception Score: 3.46 +/- 0.90
+
+python tests/inception_score.py --img_dir $DATASET
